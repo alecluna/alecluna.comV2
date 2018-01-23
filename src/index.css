@@ -1,6 +1,57 @@
 * {
-
   margin: 20px;
   padding: 20px;
   font-family: sans-serif;
 }
+
+
+ul.buttons li{
+
+  display: inline;
+  list-style-type: none;
+  margin:0;
+
+}
+
+ul.buttons {
+
+  text-align: center;
+  padding: 0;
+}
+
+ul.buttons button {
+  border-radius: 8px;
+  cursor:pointer;
+  padding: 20px;
+  font-size: 16px;
+  display: inline-block;
+
+}
+
+@media (max-width: 700px){
+
+  ul.buttons { width: 40px}
+
+
+}
+
+/*.fade-enter {
+
+  opacity: 0;
+}
+
+.fade-enter-active {
+
+  opacity: 1;
+  transition: opactiy 500ms ease-out;
+}
+
+.fade-leave{
+  opacity: 1;
+}
+
+.fade-leave-active{
+
+  opacity: 0;
+  transition: opactiy 500ms ease-out;
+}*/

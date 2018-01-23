@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Hello from './Components/Hello';
 import AboutMe from './Components/AboutMe';
 import WhatiDo from './Components/WhatiDo';
@@ -15,34 +16,37 @@ class App extends Component {
         { name: "About Me", isActive: false },
         { name: "What I Do", isActive: false },
         { name: "Contact", isActive: false }
-      ]
+      ],
     }
 
   }
   toggle(index) {
 
     let temp = this.state.arr;
-    temp.forEach(function (currentVal, element) { //compare element to index of button pushed
+    temp.forEach(function (currentVal, element) { //compare element to index of button pushed, currentVal does nothing
 
       if (temp[element] === temp[index]) {
 
         temp[index].isActive = !temp[index].isActive;
       }
-      else { //every button not = index is changed to false 
+      else { //every button not == index is changed to false 
         temp[element].isActive = false;
       }
     });
 
-    this.setState({ arr: temp }); //replace current array with newly updated temp array
+    this.setState(
+      { arr: temp }); //replace current array with newly updated temp array
   }
   render() {
     return (
       <div className="wrapper">
-        {this.state.arr.map((el, index) =>
-          <button key={index} onClick={() => this.toggle(index)}>
-            {el.name}, isActive: {el.isActive ? "true" : "false"}
-          </button>
-        )}
+        <ul className="buttons">
+          {this.state.arr.map((el, index) =>
+            <li><button key={index} onClick={() => this.toggle(index)} className="btn btn-primary">
+              {el.name}, isActive: {el.isActive ? "true" : "false"}
+            </button></li>
+          )}
+        </ul>
         <div className="content">
           {this.state.arr[0].isActive ? <Hello /> : null}
           {this.state.arr[1].isActive ? <AboutMe /> : null}
