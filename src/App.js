@@ -39,11 +39,11 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="wrapper">
+      <div className="container">
         <ul className="buttons">
           {this.state.arr.map((el, index) =>
-            <li><button key={index} onClick={() => this.toggle(index)} className="btn btn-primary">
-              {el.name}, isActive: {el.isActive ? "true" : "false"}
+            <li><button key={index} onClick={() => this.toggle(index)} className="btn btn-light">
+              {el.name}
             </button></li>
           )}
         </ul>

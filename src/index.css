@@ -1,9 +1,15 @@
 * {
-  margin: 20px;
-  padding: 20px;
+  margin: 0px;
+  padding: 0px;
   font-family: sans-serif;
 }
 
+.container { 
+  margin-top: 15%;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 100vh;
+}
 
 ul.buttons li{
 
@@ -13,6 +19,8 @@ ul.buttons li{
 
 }
 
+buttons { width: 200px;}
+
 ul.buttons {
 
   text-align: center;
@@ -20,38 +28,28 @@ ul.buttons {
 }
 
 ul.buttons button {
-  border-radius: 8px;
   cursor:pointer;
-  padding: 20px;
   font-size: 16px;
   display: inline-block;
 
 }
 
-@media (max-width: 700px){
+.content {
 
-  ul.buttons { width: 40px}
-
-
+  text-align: center;
 }
 
-/*.fade-enter {
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
-  opacity: 0;
+  .container{ margin-top: 50%;}
 }
 
-.fade-enter-active {
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  
+  .container{ margin-top: 35%;}
+  }
 
-  opacity: 1;
-  transition: opactiy 500ms ease-out;
-}
 
-.fade-leave{
-  opacity: 1;
-}
 
-.fade-leave-active{
-
-  opacity: 0;
-  transition: opactiy 500ms ease-out;
-}*/
