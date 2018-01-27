@@ -40,18 +40,20 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <ul className="buttons">
-          {this.state.arr.map((el, index) =>
-            <li><button key={index} onClick={() => this.toggle(index)} className="btn btn-light">
-              {el.name}
-            </button></li>
-          )}
-        </ul>
-        <div className="content">
-          {this.state.arr[0].isActive ? <Hello /> : null}
-          {this.state.arr[1].isActive ? <AboutMe /> : null}
-          {this.state.arr[2].isActive ? <WhatiDo /> : null}
-          {this.state.arr[3].isActive ? <Contact /> : null}
+        <div className="vertical-align">
+          <ul className="buttons">
+            {this.state.arr.map((el, index) =>
+              <li><button key={index} onClick={() => this.toggle(index)} className="bttn">
+                {el.name}
+              </button></li>
+            )}
+          </ul>
+          <div className="content">
+            {this.state.arr[0].isActive ? <Hello /> : null}
+            {this.state.arr[1].isActive ? <AboutMe /> : null}
+            {this.state.arr[2].isActive ? <WhatiDo /> : null}
+            {this.state.arr[3].isActive ? <Contact /> : null}
+          </div>
         </div>
       </div>
     );

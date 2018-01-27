@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 
 const color = {
 
-    backgroundColor: '#7F7C7C',
     color: 'white'
+}
+
+const nameSize = {
+    fontSize: '18px'
 }
 
 class Hello extends React.Component {
     render() {
         return (
             <div style={color}>
-               HELLO
+               <p style={nameSize}>My name is Alec, CS student and self taught Web Developer </p>
             </div>
         );
     }
