@@ -41,6 +41,12 @@ class App extends Component {
     return (
       <div className="container">
         <div className="vertical-align">
+        <div className="content">
+            {this.state.arr[0].isActive ? <Hello /> : null}
+            {this.state.arr[1].isActive ? <AboutMe /> : null}
+            {this.state.arr[2].isActive ? <WhatiDo /> : null}
+            {this.state.arr[3].isActive ? <Contact /> : null}
+          </div>
           <ul className="buttons">
             {this.state.arr.map((el, index) =>
               <li><button key={index} onClick={() => this.toggle(index)} className="bttn">
@@ -48,12 +54,6 @@ class App extends Component {
               </button></li>
             )}
           </ul>
-          <div className="content">
-            {this.state.arr[0].isActive ? <Hello /> : null}
-            {this.state.arr[1].isActive ? <AboutMe /> : null}
-            {this.state.arr[2].isActive ? <WhatiDo /> : null}
-            {this.state.arr[3].isActive ? <Contact /> : null}
-          </div>
         </div>
       </div>
     );
