@@ -20,6 +20,7 @@ class App extends Component {
     }
 
   }
+
   toggle(index) {
 
     let temp = this.state.arr;
@@ -38,10 +39,15 @@ class App extends Component {
       { arr: temp }); //replace current array with newly updated temp array
   }
   render() {
+    const radius = {
+        borderRadius: '50%',
+        width: '200px'
+    }
     return (
       <div className="container">
         <div className="vertical-align">
         <div className="content">
+        <img src="http://i.imgur.com/Ow8C2QZ.jpg?2" className="img-circle" style={radius}></img>
             {this.state.arr[0].isActive ? <Hello /> : null}
             {this.state.arr[1].isActive ? <AboutMe /> : null}
             {this.state.arr[2].isActive ? <WhatiDo /> : null}
