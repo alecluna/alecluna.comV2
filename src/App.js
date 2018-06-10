@@ -1,20 +1,33 @@
 import React, { Component } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Hello from './Components/Hello';
+import '../node_modules/font-awesome/css/font-awesome.min.css';
 import AboutMe from './Components/AboutMe';
 import WhatiDo from './Components/WhatiDo';
 import Contact from './Components/Contact';
+import { CSSTransition, transit } from 'react-css-transition';
 
-class App extends Component {
+
+
+const borderStyle = {
+  boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.25)",
+  marginBottom: "20px",
+  background: "white",
+  borderTop: '2px solid white',
+  width: "150px"
+
+};
+
+const Border = () => <div style={borderStyle} /> //creating Border component to be animated
+
+export default class App extends Component {
   constructor(props) {
 
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = {
       arr: [
-        { name: "Hello", isActive: false }, //initialize buttons
-        { name: "About Me", isActive: false },
-        { name: "What I Do", isActive: false },
+        { name: "Hello", isActive: false, hidden: "hidden" }, //initialize buttons */
+        { name: "What I Do", isActive: false, hidden: "hidden" },
         { name: "Contact", isActive: false }
       ],
     }
@@ -22,48 +35,124 @@ class App extends Component {
   }
 
   toggle(index) {
-
+    //debugger
     let temp = this.state.arr;
-    temp.forEach(function (currentVal, element) { //compare element to index of button pushed, currentVal does nothing
-
-      if (temp[element] === temp[index]) {
-
-        temp[index].isActive = !temp[index].isActive;
-      }
-      else { //every button not == index is changed to false 
-        temp[element].isActive = false;
-      }
+    temp.forEach((currentVal, element) => {
+      (temp[element] === temp[index]) ?
+        temp[index].isActive = !temp[index].isActive : temp[element].isActive = false;  //toggle clicked button and falsify everything else
     });
 
+
     this.setState(
-      { arr: temp }); //replace current array with newly updated temp array
+      { isActive: temp }
+    ); //replace current array with newly updated temp array
+    console.log(this.state.arr)
+
+
   }
+
+  handleClick(index) {
+
+    this.toggle(index)
+  }
+
   render() {
     const radius = {
-        borderRadius: '50%',
-        width: '200px'
-    }
+      borderRadius: '50%',
+      width: '110px',
+      marginBottom: '8px',
+    },
+      transitionStylesNorth = {
+        defaultStyle: {
+          transform: "translate(0, 0)",
+        },
+        enterStyle: {
+          transform: transit("translate(0, -110px)", 500, "ease-in-out"),
+        },
+        leaveStyle: {
+          transform: transit("translate(0, 0)", 500, "ease-in-out"),
+        },
+        activeStyle: {
+          transform: "translate(0, -110px)"
+        }
+      },
+      transitionStyleSouth = {
+        defaultStyle: {
+          transform: "translate(0, 0)",
+        },
+        enterStyle: {
+          transform: transit("translate(0, 110px)", 500, "ease-in-out"),
+        },
+        leaveStyle: {
+          transform: transit("translate(0, 0)", 500, "ease-in-out"),
+        },
+        activeStyle: {
+          transform: "translate(0, 110px)"
+        }
+      },
+      stylesFade = {
+        defaultStyle: {
+          opacity: 0,
+        },
+        enterStyle: {
+          opacity: transit(1.0, 1500, 'ease-in-out'),
+        },
+        leaveStyle: {
+          opacity: transit(0, 1000, 'ease-in-out'),
+        },
+        activeStyle: {
+          opacity: 1,
+        }
+
+      };
+    let buttons = this.state.arr.map((el, index) =>
+      <li key={index}>
+        <button onClick={() => this.handleClick(index)} className="bttn">
+          {el.name}
+        </button>
+      </li>
+    )
+
     return (
+
       <div className="container">
         <div className="vertical-align">
-        <div className="content">
-        <img src="http://i.imgur.com/Ow8C2QZ.jpg?2" className="img-circle" style={radius}></img>
-            {this.state.arr[0].isActive ? <Hello /> : null}
-            {this.state.arr[1].isActive ? <AboutMe /> : null}
-            {this.state.arr[2].isActive ? <WhatiDo /> : null}
-            {this.state.arr[3].isActive ? <Contact /> : null}
+          <CSSTransition {...transitionStylesNorth} active={this.state.arr[0].isActive || this.state.arr[1].isActive || this.state.arr[2].isActive}>
+
+            <img src={require('./me.jpg')} className="img-circle" style={radius}></img>
+          </CSSTransition>
+
+          <div style={{ margin: 'auto', width: '5%' }}>
+            <CSSTransition {...transitionStylesNorth} active={this.state.arr[0].isActive || this.state.arr[1].isActive || this.state.arr[2].isActive}>
+              <Border />
+            </CSSTransition>
+
           </div>
-          <ul className="buttons">
-            {this.state.arr.map((el, index) =>
-              <li><button key={index} onClick={() => this.toggle(index)} className="bttn">
-                {el.name}
-              </button></li>
-            )}
-          </ul>
+
+          <CSSTransition {...stylesFade} active={this.state.arr[0].isActive || this.state.arr[1].isActive || this.state.arr[2].isActive}>
+            <div className="content">
+              {this.state.arr[0].isActive ? <AboutMe /> : null}
+              {this.state.arr[1].isActive ? <WhatiDo /> : null}
+              {this.state.arr[2].isActive ? <Contact /> : null}
+            </div>
+
+          </CSSTransition>
+
+          <div style={{ margin: 'auto', width: '10%' }}>
+            <CSSTransition {...transitionStyleSouth} active={this.state.arr[0].isActive || this.state.arr[1].isActive || this.state.arr[2].isActive}>
+              <Border />
+            </CSSTransition>
+          </div>
+
+          <CSSTransition {...transitionStyleSouth} active={this.state.arr[0].isActive || this.state.arr[1].isActive || this.state.arr[2].isActive}>
+
+            <ul className="buttons">
+              {buttons}
+            </ul>
+          </CSSTransition>
+
         </div>
       </div>
     );
   }
 }
-
-export default App;

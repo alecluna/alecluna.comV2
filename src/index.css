@@ -1,7 +1,7 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: sans-serif;
+  font-family: 'Raleway', 'Open Sans', sans-serif;
 }
 
 body {
@@ -22,6 +22,7 @@ body {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  text-align: center;
 }
 
 ul.buttons {
@@ -49,14 +50,14 @@ ul.buttons li{
 }
 
 button { 
-  width: 120px;
+  width: 100px;
   border: 1px solid;
   border-radius: 4px;
   outline: none;
   transition: all 0.2s ease;
 	box-sizing: border-box;
   text-shadow: 0 1px 0 rgba(0,0,0,0.01);
-  font-weight: 300;
+  font-weight: 200;
   color: #fff;
   border-color: #fff;
   letter-spacing: .25px;
@@ -75,14 +76,14 @@ div.container .content {
   text-align: center;
   vertical-align: top;
   font-size: 24px;
-  min-height: 10em;
+  max-height: 20em;
   vertical-align: center;
 }
 
 
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 600px) {
 
   ul.buttons li{ 
     margin:1.5px;
@@ -93,6 +94,28 @@ div.container .content {
     letter-spacing: none;
     overflow: none;
   }
+}
+
+.fade-enter {
+  opacity: 0.01;
+
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 2s;
+  transition-delay: 1s;
+
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave-active {
+  opacity: 0;
+  transition: opacity 1s;
+
 }
 
 
