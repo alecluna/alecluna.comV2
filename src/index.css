@@ -1,24 +1,23 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: 'Raleway', 'Open Sans', sans-serif;
+  font-family: "Raleway", "Open Sans", sans-serif;
 }
 
 body {
   background: linear-gradient(45deg, #0fb8ad, #2cb5e8);
 }
 
-.img-cirlce{
+.img-cirlce {
   border-radius: 50%;
 }
 
-.container { 
+.container {
   width: 100%;
   height: 100vh;
 }
 
 .vertical-align {
-
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -26,53 +25,51 @@ body {
 }
 
 ul.buttons {
-
   text-align: center;
   padding: 0;
-  -webkit-animation: fadein 3s; 
-  -moz-animation: fadein 3s; 
-   -ms-animation: fadein 3s; 
-    -o-animation: fadein 3s; 
-       animation: fadein 3s;
-
+  -webkit-animation: fadein 4s;
+  -moz-animation: fadein 4s;
+  -ms-animation: fadein 4s;
+  -o-animation: fadein 4s;
+  animation: fadein 4s;
 }
-@keyframes fadein{
-  from { opacity: 0; } 
-  to   { opacity: 1; } 
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-ul.buttons li{
-
+ul.buttons li {
   display: inline;
   list-style-type: none;
   margin: 10px;
-
 }
 
-button { 
+button {
   width: 100px;
   border: 1px solid;
   border-radius: 4px;
   outline: none;
   transition: all 0.2s ease;
-	box-sizing: border-box;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.01);
+  box-sizing: border-box;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.01);
   font-weight: 200;
   color: #fff;
   border-color: #fff;
-  letter-spacing: .25px;
+  letter-spacing: 0.25px;
   background-color: transparent;
   vertical-align: top;
 }
 button:hover {
-  background: #4682B4;
+  background: #4682b4;
   color: #fff;
-  border-color: #4682B4;
-		
+  border-color: #4682b4;
 }
 
 div.container .content {
-
   text-align: center;
   vertical-align: top;
   font-size: 24px;
@@ -80,15 +77,12 @@ div.container .content {
   vertical-align: center;
 }
 
-
-
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 600px) {
-
-  ul.buttons li{ 
-    margin:1.5px;
+@media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
+  ul.buttons li {
+    margin: 1.5px;
   }
-  button { 
+  button {
     width: 80px;
     font-size: 2px;
     letter-spacing: none;
@@ -98,14 +92,12 @@ div.container .content {
 
 .fade-enter {
   opacity: 0.01;
-
 }
 
 .fade-enter-active {
   opacity: 1;
   transition: opacity 2s;
   transition-delay: 1s;
-
 }
 
 .fade-leave {
@@ -115,10 +107,4 @@ div.container .content {
 .fade-leave-active {
   opacity: 0;
   transition: opacity 1s;
-
 }
-
-
-
-
-
