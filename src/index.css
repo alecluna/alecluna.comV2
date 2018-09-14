@@ -5,7 +5,7 @@
 }
 
 body {
-  background: linear-gradient(45deg, #0fb8ad, #2cb5e8);
+  background: #fafafa;
 }
 
 .img-cirlce {
@@ -57,16 +57,16 @@ button {
   box-sizing: border-box;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.01);
   font-weight: 200;
-  color: #fff;
-  border-color: #fff;
+  color: black;
+  border-color: black;
   letter-spacing: 0.25px;
   background-color: transparent;
   vertical-align: top;
 }
 button:hover {
-  background: #4682b4;
-  color: #fff;
-  border-color: #4682b4;
+  background: grey;
+  color: rgba(0, 0, 0, 0);
+  border-color: black;
 }
 
 div.container .content {

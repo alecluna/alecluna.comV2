@@ -9,7 +9,7 @@ import { CSSTransition, transit } from "react-css-transition";
 const borderStyle = {
   boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.25)",
   marginBottom: "20px",
-  background: "white",
+  background: "black",
   borderBottom: "1px solid rgb(222, 226, 229)"
 };
 
@@ -31,7 +31,7 @@ export default class App extends Component {
   toggle(index) {
     //debugger
     let temp = this.state.arr;
-    temp.forEach((currentVal, element) => {
+    temp.forEach((fillerArg, element) => {
       temp[element] === temp[index]
         ? (temp[index].isActive = !temp[index].isActive)
         : (temp[element].isActive = false); //toggle clicked button and falsify everything else
