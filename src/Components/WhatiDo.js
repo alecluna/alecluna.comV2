@@ -21,7 +21,7 @@ class WhatiDo extends React.Component {
     return (
       <div style={color}>
         <p>
-          Aspiring Fullstack Developer with a newfound passion for <br />{" "}
+          Aspiring Fullstack Developer with a newfound passion for <br />
           Javascript and Front-End design. Check out my current projects on
           Github!
         </p>

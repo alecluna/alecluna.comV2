@@ -4,7 +4,7 @@ import pdf from "/Users/alecluna/Documents/alecluna.comV2/src/Luna_Resume.pdf";
 const color = {
   color: "black",
   letterSpacing: ".3em",
-  fontSize: "40px"
+  fontSize: "37px"
 };
 
 class Contact extends React.Component {
@@ -12,7 +12,7 @@ class Contact extends React.Component {
     return (
       <div style={color}>
         <a href={pdf} target="_blank">
-          <i className="fa fa-file fa-3x" aria-hidden="true" style={color} />
+          <i className="fa fa-file" aria-hidden="true" style={color} />
         </a>
         <a href="https://github.com/alecluna" target="_blank">
           <i className="fa fa-github fa-3x" aria-hidden="true" style={color} />
@@ -33,6 +33,13 @@ class Contact extends React.Component {
         </a>
         <a href="https://twitter.com/AlecLunaa" target="_blank">
           <i className="fa fa-twitter fa-3x" aria-hidden="true" style={color} />
+        </a>
+        <a href="https://xkcd.com/979/" target="_blank">
+          <i
+            className="fa fa-pied-piper fa-3x"
+            aria-hidden="true"
+            style={color}
+          />
         </a>
       </div>
     );

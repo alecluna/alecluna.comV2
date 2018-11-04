@@ -23,10 +23,10 @@ export default function AboutMe() {
       <p style={font}> Student </p>
 
       <i className="fa fa-code" aria-hidden="true" style={color} />
-      <p style={font}> Curious Developer </p>
+      <p style={font}> Developer </p>
 
       <i className="fa fa-edit" aria-hidden="true" style={color} />
-      <p style={font}> Passionate Designer </p>
+      <p style={font}> Designer </p>
     </div>
   );
 }
