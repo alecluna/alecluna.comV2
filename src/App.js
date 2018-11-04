@@ -29,7 +29,6 @@ export default class App extends Component {
     });
 
     this.setState({ isActive: temp }); //replace current array with newly updated temp array
-    console.log(this.state.arr);
   }
 
   handleClick(index) {
@@ -111,7 +110,7 @@ export default class App extends Component {
             />
           </CSSTransition>
 
-          <div style={{ margin: "auto", width: "30%" }}>
+          <div style={{ margin: "auto", width: "25%" }}>
             <CSSTransition
               {...transitionStylesNorth}
               active={
@@ -139,7 +138,7 @@ export default class App extends Component {
             </div>
           </CSSTransition>
 
-          <div style={{ margin: "auto", width: "30%" }}>
+          <div style={{ margin: "auto", width: "25%" }}>
             <CSSTransition
               {...transitionStyleSouth}
               active={
