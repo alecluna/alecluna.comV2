@@ -46,13 +46,13 @@ export default class App extends Component {
           transform: "translate(0, 0)"
         },
         enterStyle: {
-          transform: transit("translate(0, -110px)", 500, "ease-in-out")
+          transform: transit("translate(0, -50px)", 500, "ease-in-out")
         },
         leaveStyle: {
           transform: transit("translate(0, 0)", 500, "ease-in-out")
         },
         activeStyle: {
-          transform: "translate(0, -110px)"
+          transform: "translate(0, -50px)"
         }
       },
       transitionStyleSouth = {
@@ -60,13 +60,13 @@ export default class App extends Component {
           transform: "translate(0, 0)"
         },
         enterStyle: {
-          transform: transit("translate(0, 110px)", 500, "ease-in-out")
+          transform: transit("translate(0, 50px)", 500, "ease-in-out")
         },
         leaveStyle: {
           transform: transit("translate(0, 0)", 500, "ease-in-out")
         },
         activeStyle: {
-          transform: "translate(0, 110px)"
+          transform: "translate(0, 50px)"
         }
       },
       stylesFade = {

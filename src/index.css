@@ -64,7 +64,6 @@ button {
   vertical-align: top;
 }
 button:hover {
-  background: grey;
   color: rgba(0, 0, 0, 0);
   border-color: black;
 }

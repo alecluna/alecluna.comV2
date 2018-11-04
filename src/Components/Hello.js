@@ -1,7 +1,7 @@
 import React from "react";
 
 const color = {
-  color: "white"
+  color: "black"
 };
 
 const font = {
@@ -10,7 +10,7 @@ const font = {
 
 const aboutMeDiv = {
   height: "210px",
-  color: "white",
+  color: "black",
   letterSpacing: ".5px",
   fontWeight: "100"
 };
