@@ -1,19 +1,11 @@
 import React, { Component } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/font-awesome/css/font-awesome.min.css";
-import AboutMe from "./Components/AboutMe";
+import Hello from "./Components/Hello";
 import WhatiDo from "./Components/WhatiDo";
 import Contact from "./Components/Contact";
+import Border from "../src/Components/Border";
 import { CSSTransition, transit } from "react-css-transition";
-
-const borderStyle = {
-  boxShadow: "1px 1px 5px 0px rgba(0,0,0,0.25)",
-  marginBottom: "20px",
-  background: "black",
-  borderBottom: "1px solid rgb(222, 226, 229)"
-};
-
-const Border = () => <div style={borderStyle} />; //creating Border component to be animated
 
 export default class App extends Component {
   constructor(props) {
@@ -29,7 +21,6 @@ export default class App extends Component {
   }
 
   toggle(index) {
-    //debugger
     let temp = this.state.arr;
     temp.forEach((fillerArg, element) => {
       temp[element] === temp[index]
@@ -116,10 +107,11 @@ export default class App extends Component {
               src={require("./me.jpg")}
               className="img-circle"
               style={radius}
+              alt="Portrait"
             />
           </CSSTransition>
 
-          <div style={{ margin: "auto", width: "300px" }}>
+          <div style={{ margin: "auto", width: "30%" }}>
             <CSSTransition
               {...transitionStylesNorth}
               active={
@@ -141,13 +133,13 @@ export default class App extends Component {
             }
           >
             <div className="content">
-              {this.state.arr[0].isActive ? <AboutMe /> : null}
+              {this.state.arr[0].isActive ? <Hello /> : null}
               {this.state.arr[1].isActive ? <WhatiDo /> : null}
               {this.state.arr[2].isActive ? <Contact /> : null}
             </div>
           </CSSTransition>
 
-          <div style={{ margin: "auto", width: "20%" }}>
+          <div style={{ margin: "auto", width: "30%" }}>
             <CSSTransition
               {...transitionStyleSouth}
               active={
