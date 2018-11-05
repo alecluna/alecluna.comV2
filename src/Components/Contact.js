@@ -24,13 +24,6 @@ class Contact extends React.Component {
             style={color}
           />
         </a>
-        <a href="https://xkcd.com/1597/" target="_blank">
-          <i
-            className="fab fa-pied-piper-hat fa-3x"
-            aria-hidden="true"
-            style={color}
-          />
-        </a>
         <a href="https://xkcd.com/979/" target="_blank">
           <i
             className="fa fa-pied-piper fa-3x"
