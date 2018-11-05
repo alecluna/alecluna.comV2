@@ -31,9 +31,6 @@ class Contact extends React.Component {
             style={color}
           />
         </a>
-        <a href="https://twitter.com/AlecLunaa" target="_blank">
-          <i className="fa fa-twitter fa-3x" aria-hidden="true" style={color} />
-        </a>
         <a href="https://xkcd.com/979/" target="_blank">
           <i
             className="fa fa-pied-piper fa-3x"
