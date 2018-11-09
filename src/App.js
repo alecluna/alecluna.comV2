@@ -119,7 +119,7 @@ export default class App extends Component {
                 this.state.arr[2].isActive
               }
             >
-              <Border />
+              <Border bottomMargin="1px" />
             </CSSTransition>
           </div>
 
@@ -147,7 +147,7 @@ export default class App extends Component {
                 this.state.arr[2].isActive
               }
             >
-              <Border />
+              <Border bottomMargin="20px" />
             </CSSTransition>
           </div>
 

@@ -65,8 +65,8 @@ button {
 }
 button:hover {
   color: #ffffff !important;
-  background: #3b83f6;
-  border-color: #3b83f6 !important;
+  background: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  border-color: #1fc8db !important;
   transition: all 0.4s ease 0s;
 }
 
