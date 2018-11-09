@@ -25,7 +25,7 @@ class WhatiDo extends React.Component {
           Javascript and Front-End design. Check out my current projects on
           Github!
         </p>
-        <a href="https://github.com/alecluna" target="_blank">
+        <a href="https://github.com/alecluna" rel="no-referrer">
           <i
             className="fa fa-github fa-3x"
             aria-hidden="true"
