@@ -20,25 +20,22 @@ export default class App extends Component {
       arr: [
         {
           name: "Hello",
-          isActive: false,
-          hidden: "hidden"
+          isActive: false
         },
         {
           name: "What I Do",
-          isActive: false,
-          hidden: "hidden"
+          isActive: false
         },
         {
-          name: "Contact",
-          isActive: false
+          name: "Contact"
         }
       ],
-      renderTime: false
+      show: false
     }; //initialize buttons */
   }
 
   toggle(index) {
-    setTimeout(() => this.setState({ renderTime: false }), 100);
+    this.setState({ show: false });
     let temp = this.state.arr;
     temp.forEach((fillerArg, element) => {
       if (temp[element] === temp[index]) {
@@ -47,14 +44,7 @@ export default class App extends Component {
         temp[element].isActive = false;
       }
     });
-    setTimeout(
-      () =>
-        this.setState({
-          isActive: temp,
-          renderTime: true
-        }),
-      100
-    );
+    setTimeout(() => this.setState({ isActive: temp, show: true }), 400);
   }
 
   handleClick(index) {
@@ -62,7 +52,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { renderTime } = this.state;
+    const { show } = this.state;
     let buttons = this.state.arr.map((el, index) => (
       <li key={index}>
         <button onClick={() => this.handleClick(index)} className="bttn">
@@ -84,15 +74,15 @@ export default class App extends Component {
           <div style={{ margin: "auto", width: "25%" }} />
 
           <div style={{ margin: "20px" }}>
-            {renderTime ? (
+            {show ? (
               <div>
                 <div>
                   <Transition
                     native
                     items={this.state.arr.isActive}
-                    from={{ opacity: 0, height: 0, transform: "scale(1)" }}
+                    from={{ opacity: 0, height: 0 }}
                     enter={[{ opacity: 1, height: "auto" }]}
-                    leave={[{ opacity: 0.5 }, { opacity: 0 }, { height: 0 }]}
+                    leave={{ opacity: 0, transition: "opacity 1s ease" }}
                   >
                     {item => props => (
                       <animated.div style={props} children={item}>
