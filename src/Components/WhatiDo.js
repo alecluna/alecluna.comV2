@@ -26,8 +26,8 @@ const WhatiDo = () => (
           width: "45%"
         }}
       >
-        Software Developer with a newfound passion for Javascript and Front-End
-        design. Check out my current projects on Github!
+        Software Developer with a passion for React. Check out my current
+        projects on Github!
       </p>
     </div>
     <a href="https://github.com/alecluna" rel="no-referrer">

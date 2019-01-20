@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/font-awesome/css/font-awesome.min.css";
+import { animated, Transition } from "react-spring";
 import Hello from "./Components/Hello";
 import WhatiDo from "./Components/WhatiDo";
 import Contact from "./Components/Contact";
-import { Transition, animated } from "react-spring";
 
 const radius = {
   borderRadius: "50%",
@@ -18,35 +18,48 @@ export default class App extends Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       arr: [
-        { name: "Hello", isActive: false, hidden: "hidden" }, //initialize buttons */
-        { name: "What I Do", isActive: false, hidden: "hidden" },
-        { name: "Contact", isActive: false }
+        {
+          name: "Hello",
+          isActive: false,
+          hidden: "hidden"
+        },
+        {
+          name: "What I Do",
+          isActive: false,
+          hidden: "hidden"
+        },
+        {
+          name: "Contact",
+          isActive: false
+        }
       ],
       renderTime: false
-    };
+    }; //initialize buttons */
   }
 
   toggle(index) {
+    setTimeout(() => this.setState({ renderTime: false }), 100);
     let temp = this.state.arr;
     temp.forEach((fillerArg, element) => {
-      temp[element] === temp[index]
-        ? (temp[index].isActive = !temp[index].isActive)
-        : (temp[element].isActive = false); //toggle clicked button and falsify everything else
+      if (temp[element] === temp[index]) {
+        temp[index].isActive = !temp[index].isActive;
+      } else {
+        temp[element].isActive = false;
+      }
     });
-    setTimeout(() => this.setState({ isActive: temp, renderTime: true }), 1000);
+    setTimeout(
+      () =>
+        this.setState({
+          isActive: temp,
+          renderTime: true
+        }),
+      100
+    );
   }
 
   handleClick(index) {
     this.toggle(index);
   }
-
-  renderContent = () => (
-    <div>
-      {this.state.arr[0].isActive ? <Hello /> : null}
-      {this.state.arr[1].isActive ? <WhatiDo /> : null}
-      {this.state.arr[2].isActive ? <Contact /> : null}
-    </div>
-  );
 
   render() {
     const { renderTime } = this.state;
@@ -59,12 +72,7 @@ export default class App extends Component {
     ));
 
     return (
-      <div
-        style={{
-          width: "100%",
-          height: "100vh"
-        }}
-      >
+      <div style={{ width: "100%", height: "100vh" }}>
         <div className="vertical-align">
           <img
             src={require("./me.jpg")}
@@ -74,20 +82,30 @@ export default class App extends Component {
           />
 
           <div style={{ margin: "auto", width: "25%" }} />
-          {/* <Transition
-            native
-            items={this.state.arr.isActive}
-            config={{ delay: 1000, duration: 1000 }}
-            from={{ opacity: 0 }}
-            enter={{ opacity: 1 }}
-            leave={{ opacity: 0 }}
-          >
-            {props => ( */}
+
           <div style={{ margin: "20px" }}>
-            {renderTime ? this.renderContent() : null}
+            {renderTime ? (
+              <div>
+                <div>
+                  <Transition
+                    native
+                    items={this.state.arr.isActive}
+                    from={{ opacity: 0, height: 0, transform: "scale(1)" }}
+                    enter={[{ opacity: 1, height: "auto" }]}
+                    leave={[{ opacity: 0.5 }, { opacity: 0 }, { height: 0 }]}
+                  >
+                    {item => props => (
+                      <animated.div style={props} children={item}>
+                        {this.state.arr[0].isActive ? <Hello /> : null}
+                        {this.state.arr[1].isActive ? <WhatiDo /> : null}
+                        {this.state.arr[2].isActive ? <Contact /> : null}
+                      </animated.div>
+                    )}
+                  </Transition>
+                </div>
+              </div>
+            ) : null}
           </div>
-          {/* )}
-          </Transition> */}
 
           <div style={{ margin: "auto", width: "25%" }} />
 
