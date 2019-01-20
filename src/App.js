@@ -5,11 +5,16 @@ import Hello from "./Components/Hello";
 import WhatiDo from "./Components/WhatiDo";
 import Contact from "./Components/Contact";
 import Border from "../src/Components/Border";
-import { CSSTransition, transit } from "react-css-transition";
+
+const radius = {
+  borderRadius: "50%",
+  width: "110px",
+  marginBottom: "8px"
+};
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.toggle = this.toggle.bind(this);
     this.state = {
       arr: [
@@ -36,53 +41,6 @@ export default class App extends Component {
   }
 
   render() {
-    const radius = {
-        borderRadius: "50%",
-        width: "110px",
-        marginBottom: "8px"
-      },
-      transitionStylesNorth = {
-        defaultStyle: {
-          transform: "translate(0, 0)"
-        },
-        enterStyle: {
-          transform: transit("translate(0, -50px)", 500, "ease-in-out")
-        },
-        leaveStyle: {
-          transform: transit("translate(0, 0)", 500, "ease-in-out")
-        },
-        activeStyle: {
-          transform: "translate(0, -50px)"
-        }
-      },
-      transitionStyleSouth = {
-        defaultStyle: {
-          transform: "translate(0, 0)"
-        },
-        enterStyle: {
-          transform: transit("translate(0, 50px)", 500, "ease-in-out")
-        },
-        leaveStyle: {
-          transform: transit("translate(0, 0)", 500, "ease-in-out")
-        },
-        activeStyle: {
-          transform: "translate(0, 50px)"
-        }
-      },
-      stylesFade = {
-        defaultStyle: {
-          opacity: 0
-        },
-        enterStyle: {
-          opacity: transit(1.0, 1500, "ease-in-out")
-        },
-        leaveStyle: {
-          opacity: transit(0, 1000, "ease-in-out")
-        },
-        activeStyle: {
-          opacity: 1
-        }
-      };
     let buttons = this.state.arr.map((el, index) => (
       <li key={index}>
         <button onClick={() => this.handleClick(index)} className="bttn">
@@ -94,73 +52,28 @@ export default class App extends Component {
     return (
       <div className="container">
         <div className="vertical-align">
-          <CSSTransition
-            {...transitionStylesNorth}
-            active={
-              this.state.arr[0].isActive ||
-              this.state.arr[1].isActive ||
-              this.state.arr[2].isActive
-            }
-          >
-            <img
-              src={require("./me.jpg")}
-              className="img-circle"
-              style={radius}
-              alt="Portrait"
-            />
-          </CSSTransition>
+          <img
+            src={require("./me.jpg")}
+            className="img-circle"
+            style={radius}
+            alt="Portrait"
+          />
 
           <div style={{ margin: "auto", width: "25%" }}>
-            <CSSTransition
-              {...transitionStylesNorth}
-              active={
-                this.state.arr[0].isActive ||
-                this.state.arr[1].isActive ||
-                this.state.arr[2].isActive
-              }
-            >
-              <Border bottomMargin="1px" />
-            </CSSTransition>
+            <Border bottomMargin="1px" />
           </div>
 
-          <CSSTransition
-            {...stylesFade}
-            active={
-              this.state.arr[0].isActive ||
-              this.state.arr[1].isActive ||
-              this.state.arr[2].isActive
-            }
-          >
-            <div className="content">
-              {this.state.arr[0].isActive ? <Hello /> : null}
-              {this.state.arr[1].isActive ? <WhatiDo /> : null}
-              {this.state.arr[2].isActive ? <Contact /> : null}
-            </div>
-          </CSSTransition>
+          <div className="content">
+            {this.state.arr[0].isActive ? <Hello /> : null}
+            {this.state.arr[1].isActive ? <WhatiDo /> : null}
+            {this.state.arr[2].isActive ? <Contact /> : null}
+          </div>
 
           <div style={{ margin: "auto", width: "25%" }}>
-            <CSSTransition
-              {...transitionStyleSouth}
-              active={
-                this.state.arr[0].isActive ||
-                this.state.arr[1].isActive ||
-                this.state.arr[2].isActive
-              }
-            >
-              <Border bottomMargin="20px" />
-            </CSSTransition>
+            <Border bottomMargin="20px" />
           </div>
 
-          <CSSTransition
-            {...transitionStyleSouth}
-            active={
-              this.state.arr[0].isActive ||
-              this.state.arr[1].isActive ||
-              this.state.arr[2].isActive
-            }
-          >
-            <ul className="buttons">{buttons}</ul>
-          </CSSTransition>
+          <ul className="buttons">{buttons}</ul>
         </div>
       </div>
     );
