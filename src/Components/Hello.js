@@ -15,18 +15,18 @@ const aboutMeDiv = {
   fontWeight: "100"
 };
 
-export default function AboutMe() {
-  return (
-    <div style={aboutMeDiv}>
-      <p style={font}>I am a: </p>
-      <i className="fa fa-book" aria-hidden="true" style={color} />
-      <p style={font}> Student </p>
+const AboutMe = () => (
+  <div style={aboutMeDiv}>
+    <p style={font}>I am a: </p>
+    <i className="fa fa-book" aria-hidden="true" style={color} />
+    <p style={font}> Student </p>
 
-      <i className="fa fa-code" aria-hidden="true" style={color} />
-      <p style={font}> Developer </p>
+    <i className="fa fa-code" aria-hidden="true" style={color} />
+    <p style={font}> Developer </p>
 
-      <i className="fa fa-edit" aria-hidden="true" style={color} />
-      <p style={font}> Designer </p>
-    </div>
-  );
-}
+    <i className="fa fa-edit" aria-hidden="true" style={color} />
+    <p style={font}> Designer </p>
+  </div>
+);
+
+export default AboutMe;
