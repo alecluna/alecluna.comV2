@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/font-awesome/css/font-awesome.min.css";
-import { animated, Transition } from "react-spring";
+import { animated, Transition, config } from "react-spring";
 import Hello from "./Components/Hello";
 import WhatiDo from "./Components/WhatiDo";
 import Contact from "./Components/Contact";
@@ -20,14 +20,18 @@ export default class App extends Component {
       arr: [
         {
           name: "Hello",
-          isActive: false
+          isActive: false,
+          key: 1
         },
         {
           name: "What I Do",
-          isActive: false
+          isActive: false,
+          key: 2
         },
         {
-          name: "Contact"
+          name: "Contact",
+          isActive: false,
+          key: 3
         }
       ],
       show: false
@@ -36,6 +40,8 @@ export default class App extends Component {
 
   toggle(index) {
     this.setState({ show: false });
+    setTimeout(() => this.setState({ isActive: temp, show: true }), 300);
+
     let temp = this.state.arr;
     temp.forEach((fillerArg, element) => {
       if (temp[element] === temp[index]) {
@@ -44,7 +50,8 @@ export default class App extends Component {
         temp[element].isActive = false;
       }
     });
-    setTimeout(() => this.setState({ isActive: temp, show: true }), 400);
+    //setTimeout(() => this.setState({ isActive: temp, show: true }), 300);
+    //this.setState({ isActive: temp, show: true });
   }
 
   handleClick(index) {
@@ -53,8 +60,9 @@ export default class App extends Component {
 
   render() {
     const { show } = this.state;
+
     let buttons = this.state.arr.map((el, index) => (
-      <li key={index}>
+      <li key={el.key}>
         <button onClick={() => this.handleClick(index)} className="bttn">
           {el.name}
         </button>
@@ -73,28 +81,32 @@ export default class App extends Component {
 
           <div style={{ margin: "auto", width: "25%" }} />
 
-          <div style={{ margin: "20px" }}>
-            {show ? (
+          <div style={{ margin: "25px" }}>
+            {/* {show ? ( */}
+            <div>
               <div>
-                <div>
-                  <Transition
-                    native
-                    items={this.state.arr.isActive}
-                    from={{ opacity: 0, height: 0 }}
-                    enter={[{ opacity: 1, height: "auto" }]}
-                    leave={{ opacity: 0, transition: "opacity 1s ease" }}
-                  >
-                    {item => props => (
-                      <animated.div style={props} children={item}>
+                <Transition
+                  native
+                  items={show}
+                  from={{ opacity: 0, height: 0 }}
+                  config={config.wobbly}
+                  enter={[{ opacity: 1, height: "auto" }]}
+                  leave={{ opacity: 0, height: 0 }}
+                >
+                  {show =>
+                    show &&
+                    (props => (
+                      <animated.div style={props}>
                         {this.state.arr[0].isActive ? <Hello /> : null}
                         {this.state.arr[1].isActive ? <WhatiDo /> : null}
                         {this.state.arr[2].isActive ? <Contact /> : null}
                       </animated.div>
-                    )}
-                  </Transition>
-                </div>
+                    ))
+                  }
+                </Transition>
               </div>
-            ) : null}
+            </div>
+            {/* ) : null} */}
           </div>
 
           <div style={{ margin: "auto", width: "25%" }} />
