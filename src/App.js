@@ -15,7 +15,6 @@ const radius = {
 export default class App extends Component {
   constructor() {
     super();
-    this.toggle = this.toggle.bind(this);
     this.state = {
       arr: [
         {
@@ -40,8 +39,9 @@ export default class App extends Component {
 
   toggle(index) {
     this.setState({ show: false });
-    setTimeout(() => this.setState({ isActive: temp, show: true }), 300);
+    setTimeout(() => this.setState({ isActive: temp, show: true }), 100);
 
+    //show is firing twice not sure why
     let temp = this.state.arr;
     temp.forEach((fillerArg, element) => {
       if (temp[element] === temp[index]) {
@@ -50,20 +50,27 @@ export default class App extends Component {
         temp[element].isActive = false;
       }
     });
-    //setTimeout(() => this.setState({ isActive: temp, show: true }), 300);
-    //this.setState({ isActive: temp, show: true });
+
+    this.setState({ isActive: temp });
   }
 
-  handleClick(index) {
+  allFalse = temp => {
+    for (let i in temp) {
+      if (temp[i].isActive === true) return false;
+    }
+    return true;
+  };
+
+  handleClick = index => {
     this.toggle(index);
-  }
+  };
 
   render() {
     const { show } = this.state;
 
     let buttons = this.state.arr.map((el, index) => (
       <li key={el.key}>
-        <button onClick={() => this.handleClick(index)} className="bttn">
+        <button onClick={this.handleClick.bind(this, index)} className="bttn">
           {el.name}
         </button>
       </li>
@@ -82,7 +89,6 @@ export default class App extends Component {
           <div style={{ margin: "auto", width: "25%" }} />
 
           <div style={{ margin: "25px" }}>
-            {/* {show ? ( */}
             <div>
               <div>
                 <Transition
@@ -106,7 +112,6 @@ export default class App extends Component {
                 </Transition>
               </div>
             </div>
-            {/* ) : null} */}
           </div>
 
           <div style={{ margin: "auto", width: "25%" }} />
