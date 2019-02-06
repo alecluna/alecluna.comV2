@@ -4,10 +4,6 @@
   font-family: "Raleway", "Open Sans", sans-serif;
 }
 
-body {
-  background: #fafafa;
-}
-
 .img-cirlce {
   border-radius: 50%;
 }
@@ -45,13 +41,13 @@ ul.buttons li {
 
 button {
   width: 100px;
-  border: 1px solid #494949 !important;
+  border: 1px solid white !important;
   border-radius: 6px;
   outline: none;
   box-sizing: border-box;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.01);
   font-weight: 200;
-  color: #494949 !important;
+  color: white !important;
   border-color: black;
   letter-spacing: 0.25px;
   background-color: transparent;

@@ -1,31 +1,38 @@
 import React from "react";
+import Me from "../me.jpg";
 
 const color = {
-  color: "black"
-};
-
-const font = {
-  fontSize: "14px"
-};
-
-const aboutMeDiv = {
-  height: "210px",
-  color: "black",
+  color: "white",
+  fontSize: ".98em",
+  listStyle: "none",
+  fontWeight: "100",
   letterSpacing: ".5px",
-  fontWeight: "100"
+  display: "flex",
+  justifyContent: "center"
+};
+
+const radius = {
+  borderRadius: "50%",
+  width: "110px",
+  marginBottom: "8px"
 };
 
 const AboutMe = () => (
-  <div style={aboutMeDiv}>
-    <p style={font}>I am a: </p>
-    <i className="fa fa-book" aria-hidden="true" style={color} />
-    <p style={font}> Student </p>
+  <div>
+    <img src={Me} className="img-circle" style={radius} alt="Portrait" />
+    <div style={{ margin: "auto", width: "25%" }} />
 
-    <i className="fa fa-code" aria-hidden="true" style={color} />
-    <p style={font}> Developer </p>
-
-    <i className="fa fa-edit" aria-hidden="true" style={color} />
-    <p style={font}> Designer </p>
+    <div style={color}>
+      <p
+        style={{
+          textAlign: "center",
+          width: "45%"
+        }}
+      >
+        Software Developer with a passion for React. Check out my current
+        projects on Github!
+      </p>
+    </div>
   </div>
 );
 

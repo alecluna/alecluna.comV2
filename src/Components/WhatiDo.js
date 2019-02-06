@@ -2,7 +2,7 @@ import React from "react";
 import "../../node_modules/font-awesome/less/font-awesome.less";
 
 const color = {
-  color: "black",
+  color: "white",
   fontSize: ".98em",
   listStyle: "none",
   fontWeight: "100",
@@ -12,7 +12,7 @@ const color = {
 };
 
 const gitIcon = {
-  color: "black",
+  color: "white",
   fontSize: "40px",
   textAlign: "center"
 };

@@ -2,7 +2,7 @@ import React from "react";
 import pdf from "/Users/alecluna/Documents/alecluna.comV2/src/Luna_Resume.pdf";
 
 const color = {
-  color: "black",
+  color: "white",
   letterSpacing: ".3em",
   fontSize: "37px"
 };

@@ -5689,9 +5689,9 @@ react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
 
-react-spring@^7.2.9:
-  version "7.2.9"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-7.2.9.tgz#57b2b01e3bc4a34b48c18b34bca01a87e230b4a7"
+react-spring@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.1.tgz#9896d6037bc99c24bed0fecf5ac8d0992724b7dd"
   dependencies:
     "@babel/runtime" "^7.0.0"
 
