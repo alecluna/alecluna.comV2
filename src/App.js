@@ -74,7 +74,8 @@ export default class App extends Component {
     return (
       <div style={backGroundStyles}>
         <div>
-          {/* <useSpring
+          <div style={{ margin: "3%" }}>
+            {/* <useSpring
                 native
                 items={show}
                 from={{ opacity: 0, height: 0 }}
@@ -85,14 +86,14 @@ export default class App extends Component {
                   show &&
                   (props => (
                     <animated.div style={stylesProps}> */}
-          {this.state.arr[0].isActive ? <Hello /> : null}
-          {this.state.arr[1].isActive ? <WhatiDo /> : null}
-          {this.state.arr[2].isActive ? <Contact /> : null}
-          {/* </animated.div>
+            {this.state.arr[0].isActive ? <Hello /> : null}
+            {this.state.arr[1].isActive ? <WhatiDo /> : null}
+            {this.state.arr[2].isActive ? <Contact /> : null}
+            {/* </animated.div>
                    ))
                  }
                </useSpring>  */}
-
+          </div>
           <ul className="buttons">
             {this.state.arr.map((el, index) => (
               <li key={el.key}>
