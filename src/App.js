@@ -9,7 +9,11 @@ import Contact from "./Components/Contact";
 const backGroundStyles = {
   width: "100%",
   height: "100vh",
-  backgroundColor: "#2f3138"
+  backgroundColor: "#2f3138",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  textAlign: "center"
 };
 
 // const stylesProps = useSpring({
@@ -46,8 +50,8 @@ export default class App extends Component {
   }
 
   toggle(index) {
-    this.setState({ show: false });
-    setTimeout(() => this.setState({ isActive: temp, show: true }), 100);
+    // this.setState({ show: false });
+    // setTimeout(() => this.setState({ isActive: temp, show: true }), 100);
 
     //show is firing twice not sure why
     let temp = this.state.arr;
@@ -62,36 +66,15 @@ export default class App extends Component {
     this.setState({ isActive: temp });
   }
 
-  allFalse = temp => {
-    for (let i in temp) {
-      if (temp[i].isActive === true) return false;
-    }
-    return true;
-  };
-
   handleClick = index => {
     this.toggle(index);
   };
 
   render() {
-    const { show } = this.state;
-
-    let buttons = this.state.arr.map((el, index) => (
-      <li key={el.key}>
-        <button onClick={this.handleClick.bind(this, index)} className="bttn">
-          {el.name}
-        </button>
-      </li>
-    ));
-
     return (
       <div style={backGroundStyles}>
-        <div className="vertical-align">
-          <div style={{ margin: "auto", width: "25%" }} />
-
-          <div>
-            <div>
-              {/* <useSpring
+        <div>
+          {/* <useSpring
                 native
                 items={show}
                 from={{ opacity: 0, height: 0 }}
@@ -102,17 +85,26 @@ export default class App extends Component {
                   show &&
                   (props => (
                     <animated.div style={stylesProps}> */}
-              {this.state.arr[0].isActive ? <Hello /> : null}
-              {this.state.arr[1].isActive ? <WhatiDo /> : null}
-              {this.state.arr[2].isActive ? <Contact /> : null}
-              {/* </animated.div>
+          {this.state.arr[0].isActive ? <Hello /> : null}
+          {this.state.arr[1].isActive ? <WhatiDo /> : null}
+          {this.state.arr[2].isActive ? <Contact /> : null}
+          {/* </animated.div>
                    ))
                  }
                </useSpring>  */}
-            </div>
-          </div>
 
-          <ul className="buttons">{buttons}</ul>
+          <ul className="buttons">
+            {this.state.arr.map((el, index) => (
+              <li key={el.key}>
+                <button
+                  onClick={this.handleClick.bind(this, index)}
+                  className="bttn"
+                >
+                  {el.name}
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     );
