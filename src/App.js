@@ -1,22 +1,28 @@
 import React from "react";
 import CardComponentContainer from "./Components/Containers/CardComponentContainer";
 import HeaderContainer from "./Components/Containers/HeaderContainer";
-import { animated, Transition } from "react-spring/renderprops";
+import { config, Spring } from "react-spring/renderprops";
 
 const backGroundStyles = {
   width: "100%",
-  height: "100vh",
+  minHeight: "100vh",
   backgroundColor: "#2f3138",
-  overflowY: "hidden"
+  backgroundsize: "cover"
 };
 
 const App = () => {
   return (
     <div style={backGroundStyles}>
-      <HeaderContainer />
-      <section>
-        <CardComponentContainer />
-      </section>
+      <Spring from={{ opacity: 0 }} to={{ opacity: 1 }} config={config.slow}>
+        {props => (
+          <div style={props}>
+            <HeaderContainer />
+            <section>
+              <CardComponentContainer />
+            </section>
+          </div>
+        )}
+      </Spring>
     </div>
   );
 };

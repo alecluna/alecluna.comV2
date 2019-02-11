@@ -7,7 +7,7 @@ const styles = {
   card: {
     maxWidth: 400,
     alignSelf: "center",
-    margin: "10px"
+    margin: "20px"
   },
   title: {
     marginBottom: 16,
@@ -21,13 +21,16 @@ const styles = {
   }
 };
 
-const CardComponent = ({ image, text }) => (
+const CardComponent = ({ image, text, logo }) => (
   <div style={styles.card}>
     <Card className="grow">
       <img src={image} alt="Project Portfolio" />
       <CardContent>
         <Typography gutterBottom variant="headline" component="h2">
           {text}
+        </Typography>
+        <Typography gutterBottom component="h2">
+          Technologies {logo}
         </Typography>
       </CardContent>
     </Card>
