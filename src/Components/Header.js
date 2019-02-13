@@ -17,6 +17,9 @@ const Header = () => (
     <Typography style={styles.headerStyles} variant="display2">
       Hello
     </Typography>
+    <Typography style={styles.headerStyles} variant="headline">
+      Here is some of my Work
+    </Typography>
   </div>
 );
 

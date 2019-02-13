@@ -21,20 +21,21 @@ const styles = {
   }
 };
 
-const CardComponent = ({ image, text, logo }) => (
-  <div style={styles.card}>
-    <Card className="grow">
-      <img src={image} alt="Project Portfolio" />
-      <CardContent>
-        <Typography gutterBottom variant="headline" component="h2">
-          {text}
-        </Typography>
-        <Typography gutterBottom component="h2">
-          Technologies {logo}
-        </Typography>
-      </CardContent>
-    </Card>
-  </div>
-);
-
+const CardComponent = ({ image, text, logo, logo2 }) => {
+  return (
+    <div style={styles.card}>
+      <Card className="grow">
+        <img src={image} alt="Project Portfolio" />
+        <CardContent>
+          <Typography gutterBottom variant="headline" component="h2">
+            {text}
+          </Typography>
+          <Typography gutterBottom component="h2">
+            Technologies {logo}, {logo2}
+          </Typography>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
 export default CardComponent;
