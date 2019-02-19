@@ -43,12 +43,16 @@ const CardComponent = ({ ...props }) => {
               {props.title}
             </Typography>
             <Typography gutterBottom component="h2">
-              Technologies <ReactSVG src={props.logo} /> {props.logo2}
+              Technologies
             </Typography>
+            <ReactSVG svgStyle={{ width: 50, height: 50 }} src={props.logo} />
+            <ReactSVG svgStyle={{ width: 50, height: 50 }} src={props.logo2} />
+            <ReactSVG svgStyle={{ width: 50, height: 50 }} src={props.logo3} />
           </CardContent>
         </Card>
       </a>
     </div>
   );
 };
+
 export default CardComponent;

@@ -3,7 +3,10 @@ import React from "react";
 const Image = (...props) => {
   return (
     <div>
-      {/* <img src={require(`../images/${props.image.toLowerCase()}.jpeg`)} /> */}
+      <img
+        alt={props.image}
+        // src={require(`../../public/Image/${props.image.toLowerCase()}.jpeg`)}
+      />
     </div>
   );
 };

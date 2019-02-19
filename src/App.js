@@ -2,6 +2,7 @@ import React from "react";
 import CardComponentContainer from "./Components/Containers/CardComponentContainer";
 import HeaderContainer from "./Components/Containers/HeaderContainer";
 import { config, Spring } from "react-spring/renderprops";
+import Contact from "./Components/Contact";
 
 const backGroundStyles = {
   width: "100%",
@@ -23,6 +24,7 @@ const App = () => {
           </div>
         )}
       </Spring>
+      <Contact />
     </div>
   );
 };

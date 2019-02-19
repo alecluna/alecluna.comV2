@@ -1,5 +1,5 @@
 import React from "react";
-import pdf from "/Users/alecluna/Documents/alecluna.comV2/src/Luna_Resume.pdf";
+import pdf from "/Users/alecluna/Documents/alecluna.comV2/src/assets/Luna_Resume.pdf";
 
 const color = {
   color: "white",
