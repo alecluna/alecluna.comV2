@@ -1,32 +1,35 @@
 import React from "react";
 import CardComponent from "../CardComponent";
-import techPlaceHolder from "../../assets/techPlaceHolder.jpeg";
 
 const listofProjects = [
   {
     id: 1,
     title: "Crowdplay",
-    logo: "react",
-    logo2: "nodejs",
-    linkto: "https://crowdplay-music-sharing.herokuapp.com/"
+    logo: "nodejs.svg",
+    logo2: "react",
+    linkto: "https://crowdplay-music-sharing.herokuapp.com/",
+    image: "1"
   },
   {
     id: 2,
     title: "WalkStevensFitness",
-    logo: "gatsby",
-    linkto: "https://friendly-neumann-6c1095.netlify.com/"
+    logo: "gatsby.svg",
+    linkto: "https://friendly-neumann-6c1095.netlify.com/",
+    image: "2"
   },
   {
     id: 3,
     title: "printworksapparel",
-    logo: "react",
-    linkto: ""
+    logo: "react.svg",
+    linkto: "",
+    image: "3"
   },
   {
     id: 4,
     title: "Basic Weather App",
     logo: "react",
-    linkto: ""
+    linkto: "",
+    image: "4"
   }
 ];
 
@@ -35,17 +38,20 @@ const CardComponentContainer = () => (
     style={{
       display: "flex",
       justifyContent: "center",
-      flexWrap: "wrap"
+      flexWrap: "wrap",
+      paddingTop: "4%"
     }}
   >
     {listofProjects.map(projects => {
       return (
         <div key={projects.id}>
           <CardComponent
-            image={techPlaceHolder}
-            text={projects.title}
+            image={projects.image}
+            title={projects.title}
             logo={projects.logo}
             logo2={projects.logo2}
+            linkto={projects.linkto}
+            picture={projects.picture}
           />
         </div>
       );

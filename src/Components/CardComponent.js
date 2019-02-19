@@ -2,6 +2,8 @@ import React from "react";
 import Card from "../../node_modules/@material-ui/core/Card";
 import Typography from "../../node_modules/@material-ui/core/Typography";
 import CardContent from "../../node_modules/@material-ui/core/CardContent";
+import Image from "../Components/Image";
+import ReactSVG from "react-svg";
 
 const styles = {
   card: {
@@ -18,23 +20,34 @@ const styles = {
     textDecoration: "none",
     fontFamily: "Roboto",
     fontSize: "28px"
+  },
+  imageStyle: {
+    width: "300px",
+    heigh: "200px"
   }
 };
 
-const CardComponent = ({ image, text, logo, logo2 }) => {
+const CardComponent = ({ ...props }) => {
   return (
     <div style={styles.card}>
-      <Card className="grow">
-        <img src={image} alt="Project Portfolio" />
-        <CardContent>
-          <Typography gutterBottom variant="headline" component="h2">
-            {text}
-          </Typography>
-          <Typography gutterBottom component="h2">
-            Technologies {logo}, {logo2}
-          </Typography>
-        </CardContent>
-      </Card>
+      <a style={{ textDecoration: "none" }} href={props.linkto}>
+        <Card>
+          <img
+            style={styles.imageStyle}
+            src={props.image}
+            alt="Project Portfolio"
+          />
+          <Image image={`image${props.image}`} />
+          <CardContent>
+            <Typography gutterBottom variant="headline" component="h2">
+              {props.title}
+            </Typography>
+            <Typography gutterBottom component="h2">
+              Technologies <ReactSVG src={props.logo} /> {props.logo2}
+            </Typography>
+          </CardContent>
+        </Card>
+      </a>
     </div>
   );
 };

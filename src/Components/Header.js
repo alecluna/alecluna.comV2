@@ -3,22 +3,22 @@ import Typography from "../../node_modules/@material-ui/core/Typography";
 
 const styles = {
   headerStyles: {
-    color: "white",
+    color: "#d6d7d8",
     fontWeight: "100",
     textAlign: "center"
   },
   formatHeader: {
-    paddingTop: "10%"
+    paddingTop: "7%"
   }
 };
 
 const Header = () => (
   <div style={styles.formatHeader}>
-    <Typography style={styles.headerStyles} variant="display2">
+    <Typography style={styles.headerStyles} variant="display3">
       Hello
     </Typography>
     <Typography style={styles.headerStyles} variant="headline">
-      Here is some of my Work
+      Some of my Work
     </Typography>
   </div>
 );
